@@ -84,3 +84,10 @@ Console.WriteLine("Pls input max value of array");
 int array_max_val = Convert.ToInt32(Console.ReadLine());
 CalcNumberOnOddPosition(CreateNewArray(array_size, array_min_val, array_max_val));
 */
+int i=new Random().Next(10,100);
+double j=i/10;
+double m=i%10;
+double k=j+m/10;
+Console.WriteLine(i);
+Console.WriteLine(k);
+Console.WriteLine(j);
