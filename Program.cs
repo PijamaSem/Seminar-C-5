@@ -84,10 +84,63 @@ Console.WriteLine("Pls input max value of array");
 int array_max_val = Convert.ToInt32(Console.ReadLine());
 CalcNumberOnOddPosition(CreateNewArray(array_size, array_min_val, array_max_val));
 */
-int i=new Random().Next(10,100);
-double j=i/10;
-double m=i%10;
-double k=j+m/10;
-Console.WriteLine(i);
-Console.WriteLine(k);
-Console.WriteLine(j);
+
+// Task 38
+// Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива. 
+
+// Method
+double [] CreateNewArray (int size, int minVal, int maxVal)    
+    {
+    double [] array = new double [size];
+   
+    for (int i=0; i<size; i++)
+    {
+        int num=(new Random().Next(minVal*10, maxVal*10+1));   // непонятно почему-то при попытке сразу делить... выдаёт int
+        array[i]=Convert.ToDouble(num);
+        array[i]=array[i]/10;  
+    }
+    return array; 
+    }
+void ShowArray(double [] arr)
+    {
+    for (int i=0; i<arr.Length; i++)
+    {
+        Console.Write(arr[i] + " ");
+    }
+        Console.WriteLine();
+    }   
+double FindMax(double [] arr)
+    {
+    double max =arr[0];
+    for(int i=1; i<arr.Length;i++)
+        {
+            if(arr[i]>max)
+                {
+                    max=arr[i];            
+                }
+        }
+              return max;    
+    }    
+double FindMin(double [] arr)
+    {
+    double min =arr[0];
+    for(int i=1; i<arr.Length;i++)
+        {
+            if(arr[i]<min)
+                {
+                    min=arr[i];            
+                }
+        }  
+    return min;
+    }     
+//Body
+Console.WriteLine("Pls input Arrya size");
+int array_size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Pls input min value of array");
+int array_min_val = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Pls input max value of array");
+int array_max_val = Convert.ToInt32(Console.ReadLine());
+double [] our_array = CreateNewArray(array_size, array_min_val, array_max_val);
+ShowArray(our_array);
+
+Console.WriteLine($"Differense between max and min is {FindMax(our_array)} - {FindMin(our_array)}  ={FindMax(our_array)-FindMin(our_array)}");
